@@ -1,5 +1,6 @@
 package com.quispesucso.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -14,8 +17,10 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "peliculas")
-public class Pelicula 
+public class Pelicula implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	//Propiedades
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,31 +30,33 @@ public class Pelicula
 	private String titulo;
 	private String protagonista;
 	private String idioma;
-	private String director;
-	private String genero;
-	private Double precio;
-	
 	@DateTimeFormat(pattern="yyyy-MM-dd",iso=ISO.DATE)
 	private LocalDate estreno;
+	private String genero;
 	private Integer dur_minutos;
+	private Double puntuacion;
+	
+	//
+	@ManyToOne
+	@JoinColumn(name ="director_id", nullable = false)
+	private Director director;
 	
 	//Constructor sin propiedades
 	public Pelicula() {}
 
 	//Constructor con propiedades
-	public Pelicula(Integer peliculaId, String titulo, String protagonista, String idioma, String director,
-			String genero, Double precio, LocalDate estreno, Integer dur_minutos) {
+	public Pelicula(Integer peliculaId, String titulo, String protagonista, String idioma, LocalDate estreno,
+			String genero, Integer dur_minutos, Double puntuacion) {
 		this.peliculaId = peliculaId;
 		this.titulo = titulo;
 		this.protagonista = protagonista;
 		this.idioma = idioma;
-		this.director = director;
-		this.genero = genero;
-		this.precio = precio;
 		this.estreno = estreno;
+		this.genero = genero;
 		this.dur_minutos = dur_minutos;
+		this.puntuacion = puntuacion;
 	}
-
+	
 	//Encapsulamiento de las propiedades
 	public Integer getPeliculaId() {
 		return peliculaId;
@@ -83,12 +90,12 @@ public class Pelicula
 		this.idioma = idioma;
 	}
 
-	public String getDirector() {
-		return director;
+	public LocalDate getEstreno() {
+		return estreno;
 	}
 
-	public void setDirector(String director) {
-		this.director = director;
+	public void setEstreno(LocalDate estreno) {
+		this.estreno = estreno;
 	}
 
 	public String getGenero() {
@@ -99,22 +106,6 @@ public class Pelicula
 		this.genero = genero;
 	}
 
-	public Double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(Double precio) {
-		this.precio = precio;
-	}
-
-	public LocalDate getEstreno() {
-		return estreno;
-	}
-
-	public void setEstreno(LocalDate estreno) {
-		this.estreno = estreno;
-	}
-
 	public Integer getDur_minutos() {
 		return dur_minutos;
 	}
@@ -122,6 +113,23 @@ public class Pelicula
 	public void setDur_minutos(Integer dur_minutos) {
 		this.dur_minutos = dur_minutos;
 	}
+
+	public Double getPuntuacion() {
+		return puntuacion;
+	}
+
+	public void setPuntuacion(Double puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+
 	
+	//
+	public Director getDirector() {
+		return director;
+	}
+
+	public void setDirector(Director director) {
+		this.director = director;
+	}
 	
 }
