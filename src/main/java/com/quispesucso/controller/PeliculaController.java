@@ -48,17 +48,18 @@ public class PeliculaController
 	{
 		Pelicula peliculaNull = new Pelicula();
 		map.put("bDirector", directorService.findAll());
+		
 		map.put("pelicula", peliculaNull);
+		/*map.put("director", new Director());*/
 		
 		return "Pelicula/registrar";
 	}
 	
 	@PostMapping("/pelicula/registrar")
-	public String registrar_POST(Pelicula pelicula, @RequestParam("directorId") Integer directorId)
+	public String registrar_POST(Pelicula pelicula/*, @RequestParam("directorId") Integer directorId*/)
 	{
-		Director directorDB = new Director();
-		directorDB.setDirectorId(directorId);
-		pelicula.setDirector(directorDB);
+		/*Director director = directorService.findById(directorId);
+		pelicula.setDirector(director);*/
 		
 		peliculaService.insert(pelicula);
 		return "redirect:/peliculas";

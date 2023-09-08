@@ -3,6 +3,9 @@
 <!-- Librería Spring Form -->
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<!-- Libreria JSTL Core -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,21 +45,22 @@
 			<label for="customRange2" class="form-label">Puntuación:</label>
 			<form:input type="range" class="form-range" path="puntuacion" min="0" max="5" id="customRange2"/> <br><br>
 			
-			<label>Selecciona un director:</label>
-			<form:select path="director" class="form-select">
-    			<form:options items="${bDirector}" itemValue="directorId" itemLabel="nombre" />
+			<label>Directores:</label>
+			<form:select class="form-control" path="director">
+				<c:forEach var="director" items="${bDirector}">
+  					<form:option value="${director.directorId}">${director.nombre}</form:option>
+				</c:forEach>
 			</form:select>
-
-			<form:hidden path="director.directorId" value="1" />
-
-			<br>
-			
+			<br><br>
+		
 			<div align="center">
 				<button type="submit" class="btn btn-primary">Guardar</button>
 				<button type="button" class="btn btn-secondary" onclick="location.href='/quispesucso/peliculas'">Cancelar</button>
 			</div>
 		</div>
 		</form:form>
+		
+		
 	</div>
 	
 <!-- Scripts -->
