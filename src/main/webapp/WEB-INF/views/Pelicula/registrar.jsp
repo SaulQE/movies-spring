@@ -30,21 +30,25 @@
 			<label>Idioma:</label> 
 			<form:input type="text" class="form-control" path="idioma"/> <br>
 			
-			<label>Director:</label> 
-			<form:input type="text" class="form-control" path="director"/> <br>
+			<label>Estreno:</label>
+			<form:input type="date" class="form-control" path="estreno"/> <br>
 			
 			<label>Género:</label>
 			<form:input type="text" class="form-control" path="genero"/> <br>
 			
-			<label>Precio:</label>
-			<form:input type="text" class="form-control" path="precio"/> <br>
-			
-			<label>Estreno:</label>
-			<form:input type="date" class="form-control" path="estreno"/> <br>
-			
 			<label>DurMinutos:</label>
 			<form:input type="number" class="form-control" path="dur_minutos"/> <br>
 			
+			<label for="customRange2" class="form-label">Puntuación:</label>
+			<form:input type="range" class="form-range" path="puntuacion" min="0" max="5" id="customRange2"/> <br><br>
+			
+			<label>Selecciona un director:</label>
+			<form:select path="director" class="form-select">
+    			<form:options items="${bDirector}" itemValue="directorId" itemLabel="nombre" />
+			</form:select>
+
+			<form:hidden path="director.directorId" value="1" />
+
 			<br>
 			
 			<div align="center">

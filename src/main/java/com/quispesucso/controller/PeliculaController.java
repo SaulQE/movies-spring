@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.quispesucso.entity.Director;
 import com.quispesucso.entity.Pelicula;
+import com.quispesucso.service.DirectorService;
 import com.quispesucso.service.PeliculaService;
 
 @Controller
@@ -19,6 +22,9 @@ public class PeliculaController
 	
 	@Autowired
 	private PeliculaService peliculaService;
+	
+	@Autowired
+	private DirectorService directorService;
 	
 	public PeliculaController() {}
 
@@ -41,14 +47,19 @@ public class PeliculaController
 	public String registrar_GET(Map map)
 	{
 		Pelicula peliculaNull = new Pelicula();
+		map.put("bDirector", directorService.findAll());
 		map.put("pelicula", peliculaNull);
 		
 		return "Pelicula/registrar";
 	}
 	
 	@PostMapping("/pelicula/registrar")
-	public String registrar_POST(Pelicula pelicula)
+	public String registrar_POST(Pelicula pelicula, @RequestParam("directorId") Integer directorId)
 	{
+		Director directorDB = new Director();
+		directorDB.setDirectorId(directorId);
+		pelicula.setDirector(directorDB);
+		
 		peliculaService.insert(pelicula);
 		return "redirect:/peliculas";
 	}

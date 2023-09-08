@@ -26,6 +26,10 @@
     <h2 style="margin-top: 40px" align="center">Home - Peliculas</h2><br>
     <button type="button" class="btn btn-dark">
     	<a href="/quispesucso/peliculas" style="text-decoration: none;color: white;">Peliculas</a>
+    </button>
+    
+    <button type="button" class="btn btn-dark">
+    	<a href="/quispesucso/directores" style="text-decoration: none;color: white;">Directores</a>
     </button><br><br>
     
 </div>
