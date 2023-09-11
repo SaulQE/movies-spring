@@ -2,6 +2,8 @@ package com.quispesucso.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -36,10 +40,15 @@ public class Pelicula implements Serializable
 	private Integer dur_minutos;
 	private Double puntuacion;
 	
-	//
 	@ManyToOne
 	@JoinColumn(name ="director_id", nullable = false)
 	private Director director;
+	
+	@ManyToMany
+	@JoinTable(name = "peliculas_sala",
+			joinColumns = @JoinColumn(name="pelicula_id"),
+			inverseJoinColumns = @JoinColumn(name="sala_id"))
+	private Set<Sala> itemsSala = new HashSet<>();
 	
 	//Constructor sin propiedades
 	public Pelicula() {}
@@ -131,5 +140,16 @@ public class Pelicula implements Serializable
 	public void setDirector(Director director) {
 		this.director = director;
 	}
+
+	//
+	public Set<Sala> getItemsSala() {
+		return itemsSala;
+	}
+
+	public void setItemsSala(Set<Sala> itemsSala) {
+		this.itemsSala = itemsSala;
+	}
+	
+	
 	
 }
