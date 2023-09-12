@@ -37,13 +37,13 @@ public class DirectorServiceImp implements DirectorService
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public Director findById(Integer directorId) {
 		return repository.findById(directorId).orElse(null);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public Collection<Director> findAll() {
 		return repository.findAll();
 	}

@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -39,6 +40,10 @@ public class Pelicula implements Serializable
 	private String genero;
 	private Integer dur_minutos;
 	private Double puntuacion;
+	
+	@OneToOne
+	@JoinColumn(name = "portada_id", unique = true, nullable = false)
+	private Portada portada;
 	
 	@ManyToOne
 	@JoinColumn(name ="director_id", nullable = false)
@@ -149,7 +154,15 @@ public class Pelicula implements Serializable
 	public void setItemsSala(Set<Sala> itemsSala) {
 		this.itemsSala = itemsSala;
 	}
-	
+
+	//
+	public Portada getPortada() {
+		return portada;
+	}
+
+	public void setPortada(Portada portada) {
+		this.portada = portada;
+	}
 	
 	
 }

@@ -30,6 +30,10 @@
     
     <button type="button" class="btn btn-dark">
     	<a href="/quispesucso/directores" style="text-decoration: none;color: white;">Directores</a>
+    </button>
+    
+    <button type="button" class="btn btn-dark">
+    	<a href="/quispesucso/portadas" style="text-decoration: none;color: white;">Portadas</a>
     </button><br><br>
     
 </div>

@@ -35,13 +35,13 @@ public class PeliculaServiceImp implements PeliculaService
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public Pelicula findById(Integer peliculaId) {
 		return repository.findById(peliculaId).orElse(null);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public Collection<Pelicula> findAll() {
 		return repository.findAll();
 	}
