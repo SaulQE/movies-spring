@@ -42,7 +42,10 @@
 			<tr>
 				<td>${portada.portadaId}</td>
 				<td>${portada.nombre}</td>
-				<td>${portada.archivo}</td>
+				<td>
+					<img src="data:${portada.getTypeImage()};base64,${portada.getBase64Image()}" 
+						 width="100px" height="140px" border="1"/>
+				</td>
 				<td align="center">
 					<button type="button" class="btn btn-info">
 						<a href="/quispesucso/portada/detalle/${portada.portadaId}" style="text-decoration: none; color: black;">Detalle</a>

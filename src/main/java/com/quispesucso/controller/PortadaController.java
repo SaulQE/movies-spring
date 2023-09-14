@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,6 +45,45 @@ public class PortadaController
 		portada.setArchivo(picture.getBytes());
 		
 		portadaService.insert(portada);
+		
+		return "redirect:/portadas";
+	}
+	
+	@GetMapping("/portada/editar/{portadaId}")
+	public String editar_GET(Model model,@PathVariable Integer portadaId) 
+	{
+		Portada portadaDb = portadaService.findById(portadaId);
+		model.addAttribute("portada",portadaDb);
+		
+		return "Portada/editar";
+	}
+	
+	@PostMapping("/portada/editar/{portadaId}")
+	public String editar_POST(@PathVariable Integer portadaId, @RequestPart ("picture")MultipartFile picture) throws IOException
+	{
+		Portada portada = new Portada();
+		portada.setPortadaId(portadaId);
+		portada.setNombre(picture.getOriginalFilename());
+		portada.setArchivo(picture.getBytes());
+		
+		portadaService.insert(portada);
+		
+		return "redirect:/portadas";
+	}
+	
+	@GetMapping("/portada/borrar/{portadaId}")
+	public String borrar_GET(Model model, @PathVariable Integer portadaId) 
+	{
+		Portada portadaDb = portadaService.findById(portadaId);
+		model.addAttribute("portada",portadaDb);
+		
+		return "Portada/borrar";
+	}
+	
+	@PostMapping("/portada/borrar/{portadaId}")
+	public String borrar_POST(@PathVariable Integer portadaId) 
+	{
+		portadaService.delete(portadaId);
 		
 		return "redirect:/portadas";
 	}

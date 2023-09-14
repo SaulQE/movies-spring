@@ -1,6 +1,7 @@
 package com.quispesucso.entity;
 
 import java.io.Serializable;
+import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.apache.tika.Tika;
 
 @Entity
 @Table(name = "portadas")
@@ -33,6 +36,8 @@ public class Portada implements Serializable
 		this.nombre = nombre;
 		this.archivo = archivo;
 	}
+	
+	
 
 	public Integer getPortadaId() {
 		return portadaId;
@@ -67,6 +72,13 @@ public class Portada implements Serializable
 		this.pelicula = pelicula;
 	}
 	
+	//Obtener archivo en base64
+	public String getBase64Image() {
+		return Base64.getEncoder().encodeToString(this.archivo);
+	}
 	
-	
+	//Obtener el tipo de archivo (jpeg,jpg,png,gif...)
+	public String getTypeImage() {
+		return new Tika().detect(this.archivo);
+	}
 }
