@@ -34,7 +34,7 @@ public class Cliente implements Serializable
 	@OneToMany(mappedBy = "cliente")
 	private Collection<Boleto> itemsBoleto = new ArrayList<>();
 	
-	public Cliente() {	}
+	public Cliente() {}
 
 	public Cliente(Integer clienteId, String nomCompleto, LocalDate fnacimiento, String correo, String contraseña,
 			Integer telefono) {

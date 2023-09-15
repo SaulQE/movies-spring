@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.quispesucso.entity.Director;
 import com.quispesucso.entity.Pelicula;
 import com.quispesucso.service.DirectorService;
 import com.quispesucso.service.PeliculaService;

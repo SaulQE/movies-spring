@@ -16,20 +16,20 @@
 </head>
 <body>
 	<div Class="container ">
-		<h3 style="margin-top: 20px" align="center">Director - Borrar</h3>
+		<h3 style="margin-top: 20px" align="center">Borrar - Borrar</h3>
 		
 		<!-- Formulario Spring -->
-		<form:form name="" method="post" modelAttribute="director" class="mx-auto">
+		<form:form name="" method="post" modelAttribute="cliente" class="mx-auto">
 		
 		<div class="shadow-lg p-4 mb-4 bg-white border border-2" style="width: 320px; margin: 20px auto; border-radius: 10px">
-			<label>Director ID:</label>
-			<form:input type="text" class="form-control" path="directorId" readonly="true"/> <br>
+			<label>Cliente ID:</label>
+			<form:input type="text" class="form-control" path="clienteId" readonly="true"/> <br>
 			<label>Nombre:</label> 
-			<form:input type="text" class="form-control" path="nombre" readonly="true"/> <br>
-			<p class="text-center">¿Está seguro de borrar el director?</p><br>
+			<form:input type="text" class="form-control" path="nomCompleto" readonly="true"/> <br>
+			<p class="text-center">¿Está seguro de borrar el cliente?</p><br>
 			<div align="center">
 				<button class="btn btn-danger" type="submit">Borrar</button>
-				<button class="btn btn-secondary" type="button" onclick="location.href='/quispesucso/directores'">Cancelar</button>
+				<button class="btn btn-secondary" type="button" onclick="location.href='/quispesucso/clientes'">Cancelar</button>
 			</div>
 		</div>
 		

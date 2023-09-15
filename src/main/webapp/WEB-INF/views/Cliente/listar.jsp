@@ -19,41 +19,45 @@
 </style>
 <body>
 <div align="center" style="margin: 20px 140px">
-	<h2>Directores - Listar</h2><br>
+	<h2>Clientes - Listar</h2><br>
 
 	<button type="button" class="btn btn-dark">
 		<a href="/quispesucso/home" style="text-decoration: none;color: white;">Home</a>
 	</button>
 	<button type="button" class="btn btn-dark">
-		<a href="/quispesucso/director/registrar" style="text-decoration: none;color: white;">Registrar</a>
+		<a href="/quispesucso/cliente/registrar" style="text-decoration: none;color: white;">Registrar</a>
 	</button><br><br>
 	
 	<table class="table table-bordered table-hover">
 		<thead class="table-dark">
 		<tr>
 			<th>ID</th>
-			<th>Nombre</th>
+			<th>Nombre Completo</th>
 			<th>F.Nacimiento</th>
-			<th>País</th>
+			<th>Correo</th>
+			<th>Contaseña</th>
+			<th>Teléfono</th>
 			<th>Acción</th>
 		</tr>
 		</thead>
 
-		<c:forEach var="director" items="${bDirector}">
+		<c:forEach var="cliente" items="${bClientes}">
 			<tr>
-				<td>${director.directorId}</td>
-				<td>${director.nombre}</td>
-				<td>${director.fnacimiento}</td>
-				<td>${director.pais}</td>
+				<td>${cliente.clienteId}</td>
+				<td>${cliente.nomCompleto}</td>
+				<td>${cliente.fnacimiento}</td>
+				<td>${cliente.correo}</td>
+				<td>${cliente.contraseña}</td>
+				<td>${cliente.telefono}</td>
 				<td align="center">
 					<button type="button" class="btn btn-info">
-						<a href="/quispesucso/director/detalle/${director.directorId}" style="text-decoration: none; color: black;">Detalle</a>
+						<a href="/quispesucso/cliente/detalle/${cliente.clienteId}" style="text-decoration: none; color: black;">Detalle</a>
 					</button>
 					<button type="button" class="btn btn-warning">
-						<a href="/quispesucso/director/editar/${director.directorId}" style="text-decoration: none; color: black;">Editar</a>
+						<a href="/quispesucso/cliente/editar/${cliente.clienteId}" style="text-decoration: none; color: black;">Editar</a>
 					</button>
 					<button type="button" class="btn btn-danger">
-						<a href="/quispesucso/director/borrar/${director.directorId}" style="text-decoration: none; color: white;">Borrar</a>
+						<a href="/quispesucso/cliente/borrar/${cliente.clienteId}" style="text-decoration: none; color: white;">Borrar</a>
 					</button>
 				</td>
 			</tr>

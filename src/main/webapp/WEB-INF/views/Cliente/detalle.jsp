@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,14 +13,16 @@
 </head>
 <body>
 	<div class="container">
-		<h3 style="margin-top: 20px" align="center">Director - Detalle</h3>
+		<h3 style="margin-top: 20px" align="center">Cliente - Detalle</h3>
 		
 		<form name="" method="post" class="mx-auto">
 		<div class="shadow-lg p-4 mb-4 bg-white border border-2" style="width: 320px; margin: 20px auto; border-radius: 10px">
-			<b>Director ID:</b> ${director.directorId} <br>
-			<b>Nombre:</b> ${director.nombre} <br>
-			<b>F.Nacimiento:</b> ${director.fnacimiento} <br>
-			<b>País:</b> ${director.pais} <br><br>
+			<b>Cliente ID:</b> ${cliente.clienteId} <br>
+			<b>Nombre completo:</b> ${cliente.nomCompleto} <br>
+			<b>F.Nacimiento:</b> ${cliente.fnacimiento} <br>
+			<b>Correo:</b> ${cliente.correo} <br>
+			<b>Contraseña:</b> ${cliente.contraseña} <br>
+			<b>Teléfono:</b> ${cliente.telefono} <br><br>
 		
 			<div align="center">
 				<button class="btn btn-dark" type="submit" name="btnHome">Home</button>

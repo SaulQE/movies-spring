@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +13,15 @@
 </head>
 <body>
 	<div class="container">
-		<h3 style="margin-top: 20px" align="center">Director - Detalle</h3>
+		<h3 style="margin-top: 20px" align="center">Portada - Detalle</h3>
 		
-		<form name="" method="post" class="mx-auto">
+		<!-- Formulario -->
+		<form name="" method="post" action="/quispesucso/portada/detalle/${portada.portadaId}" enctype="multipart/form-data" class="mx-auto">
 		<div class="shadow-lg p-4 mb-4 bg-white border border-2" style="width: 320px; margin: 20px auto; border-radius: 10px">
-			<b>Director ID:</b> ${director.directorId} <br>
-			<b>Nombre:</b> ${director.nombre} <br>
-			<b>F.Nacimiento:</b> ${director.fnacimiento} <br>
-			<b>País:</b> ${director.pais} <br><br>
-		
+			<b>Portada ID:</b> ${portada.portadaId} <br>
+			<b>Nombre:</b> ${portada.nombre} <br>
+			<b>Portada:</b><br>
+			<img src="data:${portada.getTypeImage()};base64,${portada.getBase64Image()}" width="120px" height="160px" border="1"/> <br> <br>
 			<div align="center">
 				<button class="btn btn-dark" type="submit" name="btnHome">Home</button>
 				<button class="btn btn-secondary" type="submit" name="btnVolver">Volver</button>

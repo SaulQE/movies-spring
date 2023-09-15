@@ -34,6 +34,14 @@
     
     <button type="button" class="btn btn-dark">
     	<a href="/quispesucso/portadas" style="text-decoration: none;color: white;">Portadas</a>
+    </button>
+    
+    <button type="button" class="btn btn-dark">
+    	<a href="/quispesucso/sucursales" style="text-decoration: none;color: white;">Sucursales</a>
+    </button>
+    
+    <button type="button" class="btn btn-dark">
+    	<a href="/quispesucso/clientes" style="text-decoration: none;color: white;">Clientes</a>
     </button><br><br>
     
 </div>

@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -85,6 +87,27 @@ public class PortadaController
 	{
 		portadaService.delete(portadaId);
 		
+		return "redirect:/portadas";
+	}
+	
+	@GetMapping("/portada/detalle/{portadaId}")
+	public String detalle_GET(Model model, @PathVariable Integer portadaId)
+	{
+		Portada portadaDb = portadaService.findById(portadaId);
+		model.addAttribute("portada",portadaDb);
+		
+		return "Portada/detalle";
+	}
+	
+	@RequestMapping(value="/portada/detalle/{portadaId}",method=RequestMethod.POST,params="btnHome")
+	public String detalle_POST1()
+	{
+		return "redirect:/home";
+	}
+	
+	@RequestMapping(value="/portada/detalle/{portadaId}",method=RequestMethod.POST,params="btnVolver")
+	public String detalle_POST2()
+	{
 		return "redirect:/portadas";
 	}
 	
