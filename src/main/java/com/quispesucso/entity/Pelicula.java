@@ -46,7 +46,7 @@ public class Pelicula implements Serializable
 	private Portada portada;
 	
 	@ManyToOne
-	@JoinColumn(name ="director_id", nullable = false)
+	@JoinColumn(name = "director_id", nullable = false)
 	private Director director;
 	
 	@ManyToMany
@@ -69,6 +69,10 @@ public class Pelicula implements Serializable
 		this.genero = genero;
 		this.dur_minutos = dur_minutos;
 		this.puntuacion = puntuacion;
+	}
+	
+	public void addSala(Sala sala) {
+		itemsSala.add(sala);
 	}
 	
 	//Encapsulamiento de las propiedades
@@ -141,7 +145,7 @@ public class Pelicula implements Serializable
 	public Director getDirector() {
 		return director;
 	}
-
+	
 	public void setDirector(Director director) {
 		this.director = director;
 	}
@@ -150,6 +154,7 @@ public class Pelicula implements Serializable
 	public Set<Sala> getItemsSala() {
 		return itemsSala;
 	}
+
 
 	public void setItemsSala(Set<Sala> itemsSala) {
 		this.itemsSala = itemsSala;

@@ -46,11 +46,17 @@
 			<form:input type="range" class="form-range" path="puntuacion" min="0" max="5" id="customRange2"/> <br><br>
 			
 			<label>Directores:</label>
-			<form:select class="form-control" path="director">
-				<c:forEach var="director" items="${bDirector}">
-  					<form:option value="${director.directorId}">${director.nombre}</form:option>
-				</c:forEach>
+			<form:select class="form-control" path="director.directorId">
+				<option>--Seleccione--</option>
+				<form:options itemValue="directorId" itemLabel="nombre" items="${bDirectores}"/>
+			</form:select> <br> <br>
+			
+			<label>Portadas:</label>
+			<form:select class="form-control" path="portada.portadaId">
+				<option>--Seleccione--</option>
+  				<form:options itemValue="portadaId" itemLabel="nombre" items="${bPortadas}"/>
 			</form:select>
+			
 			<br><br>
 		
 			<div align="center">
@@ -62,10 +68,5 @@
 		
 		
 	</div>
-	
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-</script>
 </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.quispesucso.entity.Cliente;
+import com.quispesucso.service.BoletoService;
 import com.quispesucso.service.ClienteService;
 
 @Controller
@@ -19,6 +20,7 @@ public class ClienteController
 {
 	@Autowired
 	private ClienteService clienteService;
+	
 	
 	public ClienteController() {}
 	

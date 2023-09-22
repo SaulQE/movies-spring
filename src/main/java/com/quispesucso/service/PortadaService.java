@@ -11,4 +11,6 @@ public interface PortadaService
 	public abstract void delete(Integer portadaId);
 	public abstract Portada findById(Integer portadaId);
 	public abstract Collection<Portada> findAll();
+	
+	public abstract Collection<Portada> PortadaSinRelacionar();
 }

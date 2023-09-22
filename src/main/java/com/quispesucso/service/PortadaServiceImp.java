@@ -45,4 +45,10 @@ public class PortadaServiceImp implements PortadaService
 		return repository.findAll();
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public Collection<Portada> PortadaSinRelacionar() {
+		return repository.PortadaSinRelacionar();
+	}
+
 }

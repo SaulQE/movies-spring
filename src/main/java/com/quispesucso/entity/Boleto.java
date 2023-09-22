@@ -27,7 +27,6 @@ public class Boleto implements Serializable
 	private Double precio;
 	@DateTimeFormat(pattern="yyyy-MM-dd",iso=ISO.DATE)
 	private LocalDate fcompra;
-	private Integer nroSala;
 	private String tipoBoleto;
 	
 	@ManyToOne
@@ -46,7 +45,6 @@ public class Boleto implements Serializable
 		this.nroButaca = nroButaca;
 		this.precio = precio;
 		this.fcompra = fcompra;
-		this.nroSala = nroSala;
 		this.tipoBoleto = tipoBoleto;
 	}
 
@@ -80,14 +78,6 @@ public class Boleto implements Serializable
 
 	public void setFcompra(LocalDate fcompra) {
 		this.fcompra = fcompra;
-	}
-
-	public Integer getNroSala() {
-		return nroSala;
-	}
-
-	public void setNroSala(Integer nroSala) {
-		this.nroSala = nroSala;
 	}
 
 	public String getTipoBoleto() {

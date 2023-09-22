@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!-- Librería Spring Form -->
+<!-- LibrerÃ­a Spring Form -->
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
@@ -16,20 +15,21 @@
 </head>
 <body>
 	<div Class="container ">
-		<h3 style="margin-top: 20px" align="center">Peliculas - Borrar</h3>
+		<h3 style="margin-top: 20px" align="center">Sala - Borrar</h3>
 		
 		<!-- Formulario Spring -->
-		<form:form name="" method="post" modelAttribute="pelicula" class="mx-auto">
+		<form:form name="" method="post" modelAttribute="sala" class="mx-auto">
 		
 		<div class="shadow-lg p-4 mb-4 bg-white border border-2" style="width: 320px; margin: 20px auto; border-radius: 10px">
-			<label>Pelicula ID:</label>
-			<form:input type="text" class="form-control" path="peliculaId" readonly="true"/> <br>
-			<label>Título:</label> 
-			<form:input type="text" class="form-control" path="titulo" readonly="true"/> <br>
-			<p class="text-center">¿Está seguro de borrar la pelicula?</p><br>
+			<label>Sala ID:</label>
+			<form:input type="text" class="form-control" path="salaId" readonly="true"/> <br>
+			<label>Nombre:</label> 
+			<form:input type="text" class="form-control" path="nombre" readonly="true"/> <br>
+			<p class="text-center">Â¿EstÃ¡ seguro de borrar la sala?</p><br>
+			
 			<div align="center">
 				<button class="btn btn-danger" type="submit">Borrar</button>
-				<button class="btn btn-secondary" type="button" onclick="location.href='/quispesucso/peliculas'">Cancelar</button>
+				<button class="btn btn-secondary" type="button" onclick="location.href='/quispesucso/salas'">Cancelar</button>
 			</div>
 		</div>
 		

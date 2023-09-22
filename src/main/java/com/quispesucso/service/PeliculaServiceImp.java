@@ -47,10 +47,16 @@ public class PeliculaServiceImp implements PeliculaService
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public Integer sumMinutos() {
 
 		return repository.sumMinutos();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Collection<Object[]> peliculas_sala(Integer pelicula_id) {
+		return repository.peliculas_sala(pelicula_id);
 	}
 
 }

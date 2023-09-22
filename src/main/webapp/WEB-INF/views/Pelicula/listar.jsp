@@ -19,7 +19,7 @@
 </style>
 <body>
 <div align="center" style="margin: 20px 140px">
-	<h2>Libros - Listar</h2><br>
+	<h2>Peliculas - Listar</h2><br>
 
 	<button type="button" class="btn btn-dark">
 		<a href="/quispesucso/home" style="text-decoration: none;color: white;">Home</a>
@@ -39,7 +39,8 @@
 			<th>Género</th>
 			<th>DurMinutos</th>
 			<th>Puntuación</th>
-			<th>Director Id</th>
+			<th>Nom.Director</th>
+			<th>Portada</th>
 			<th>Acción</th>
 		</tr>
 		</thead>
@@ -54,7 +55,11 @@
 				<td>${pelicula.genero}</td>
 				<td>${pelicula.dur_minutos}</td>
 				<td>${pelicula.puntuacion}</td>
-				<td>${pelicula.directorId}</td>
+				<td>${pelicula.director.nombre}</td>
+				<td>
+					<img src="data:${pelicula.portada.getTypeImage()};base64,${pelicula.portada.getBase64Image()}" 
+						 width="70px" height="100px" border="1"/>
+					</td>
 				<td align="center">
 					<button type="button" class="btn btn-info">
 						<a href="/quispesucso/pelicula/detalle/${pelicula.peliculaId}" style="text-decoration: none; color: black;">Detalle</a>
@@ -65,19 +70,18 @@
 					<button type="button" class="btn btn-danger">
 						<a href="/quispesucso/pelicula/borrar/${pelicula.peliculaId}" style="text-decoration: none; color: white;">Borrar</a>
 					</button>
+					<button type="button" class="btn btn-info">
+						<a href="/quispesucso/pelicula/sala_agregar/${pelicula.peliculaId}" style="text-decoration: none; color: black;">+Sala</a>
+					</button>
+					
 				</td>
 			</tr>
 		</c:forEach>
 		<tr>
-        	<td colspan="8" class="text-end"><b>Suma de los minutos:</b></td>
+        	<td colspan="6" class="text-end"><b>Suma de los minutos:</b></td>
         	<td class="text-center">${sumMinutos}</td>
     	</tr>
 	</table>
 </div>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-</script>
 </body>
 </html>

@@ -21,7 +21,8 @@
 		<form:form name="" method="post" modelAttribute="pelicula" class="mx-auto">
 		<div class="shadow-lg p-4 mb-4 bg-white border border-2" style="width: 370px; margin: 20px auto; border-radius: 10px">
 			<label>Pelicula ID:</label>
-			<form:input type="text" class="form-control" path="peliculaId" readonly="true"/> <br>
+			<form:input type="number" class="form-control" path="peliculaId" readonly="true"/> <br>
+			
 			<label>Título:</label>
 			<form:input type="text" class="form-control" path="titulo"/> <br>
 			
@@ -31,21 +32,30 @@
 			<label>Idioma:</label> 
 			<form:input type="text" class="form-control" path="idioma"/> <br>
 			
-			<label>Director:</label> 
-			<form:input type="text" class="form-control" path="director"/> <br>
+			<label>Estreno:</label>
+			<form:input type="date" class="form-control" path="estreno"/> <br>
 			
 			<label>Género:</label>
 			<form:input type="text" class="form-control" path="genero"/> <br>
 			
-			<label>Precio:</label>
-			<form:input type="text" class="form-control" path="precio"/> <br>
-			
-			<label>Estreno:</label>
-			<form:input type="date" class="form-control" path="estreno"/> <br>
-			
 			<label>DurMinutos:</label>
 			<form:input type="number" class="form-control" path="dur_minutos"/> <br>
 
+			<label for="customRange2" class="form-label">Puntuación:</label>
+			<form:input type="range" class="form-range" path="puntuacion" min="0" max="5" id="customRange2"/> <br><br>
+			
+			<label>Directores:</label>
+			<form:select class="form-control" path="director.directorId">
+				<option>--Seleccione--</option>
+				<form:options itemValue="directorId" itemLabel="nombre" items="${bDirectores}"/>
+			</form:select> <br>
+			
+			<label>Portadas:</label>
+			<form:select class="form-control" path="portada.portadaId">
+				<option>--Seleccione--</option>
+  				<form:options itemValue="portadaId" itemLabel="nombre" items="${bPortadas}"/>
+			</form:select><br><br>
+			
 			<div align="center">
 				<button type="submit" class="btn btn-primary">Guardar</button>
 				<button type="button" class="btn btn-secondary" onclick="location.href='/quispesucso/peliculas'">Cancelar</button>

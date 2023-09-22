@@ -43,7 +43,6 @@ public class Director implements Serializable
 		this.pais = pais;
 	}
 
-	//Encapsulamiento de las propiedades
 	public Integer getDirectorId() {
 		return directorId;
 	}
@@ -76,7 +75,6 @@ public class Director implements Serializable
 		this.pais = pais;
 	}
 
-	//
 	public Collection<Pelicula> getItemsPelicula() {
 		return itemsPelicula;
 	}
@@ -84,6 +82,8 @@ public class Director implements Serializable
 	public void setItemsPelicula(Collection<Pelicula> itemsPelicula) {
 		this.itemsPelicula = itemsPelicula;
 	}
+
+	
 	
 	
 }

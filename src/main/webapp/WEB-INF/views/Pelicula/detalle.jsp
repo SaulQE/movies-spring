@@ -24,11 +24,14 @@
 			<b>Título:</b> ${pelicula.titulo} <br>
 			<b>Protagonista:</b> ${pelicula.protagonista} <br>
 			<b>Idioma:</b> ${pelicula.idioma} <br>
-			<b>Director:</b> ${pelicula.director} <br>
-			<b>Género:</b> ${pelicula.genero} <br>
-			<b>Precio:</b> ${pelicula.precio} <br>
 			<b>Estreno:</b> ${pelicula.estreno} <br>
-			<b>DurMinutos:</b> ${pelicula.dur_minutos} <br><br>
+			<b>Género:</b> ${pelicula.genero} <br>
+			<b>DurMinutos:</b> ${pelicula.dur_minutos} <br>
+			<b>Puntuación:</b> ${pelicula.puntuacion} <br>
+			<b>Director:</b> ${pelicula.director.nombre} <br><br>
+			
+			<b>Portada:</b>
+			<img src="data:${pelicula.portada.getTypeImage()};base64,${pelicula.portada.getBase64Image()}" width="120px" height="160px" border="1"/> <br> <br>
 		
 			<div align="center">
 				<button class="btn btn-dark" type="submit" name="btnHome">Home</button>
@@ -37,10 +40,5 @@
 		</div>
 		</form>
 	</div>
-	
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-</script>
 </body>
 </html>
