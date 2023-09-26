@@ -40,7 +40,8 @@ public class PortadaController
 	}
 	
 	@PostMapping("/portada/registrar")
-	public String registrar_POST(@RequestPart("picture")MultipartFile picture) throws IOException 
+	public String registrar_POST(@RequestPart("picture")MultipartFile picture) 
+			throws IOException 
 	{
 		Portada portada = new Portada();
 		portada.setNombre(picture.getOriginalFilename());
@@ -61,7 +62,8 @@ public class PortadaController
 	}
 	
 	@PostMapping("/portada/editar/{portadaId}")
-	public String editar_POST(@PathVariable Integer portadaId, @RequestPart ("picture")MultipartFile picture) throws IOException
+	public String editar_POST(@PathVariable Integer portadaId, 
+			@RequestPart ("picture")MultipartFile picture) throws IOException
 	{
 		Portada portada = new Portada();
 		portada.setPortadaId(portadaId);

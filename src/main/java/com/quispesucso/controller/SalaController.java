@@ -25,6 +25,8 @@ public class SalaController
 	@Autowired
 	private SucursalService sucursalService;
 	
+	public SalaController() {}
+	
 	@GetMapping("/salas")
 	public String listar_GET(Map map)
 	{

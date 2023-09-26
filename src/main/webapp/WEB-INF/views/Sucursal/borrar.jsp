@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div Class="container ">
-		<h3 style="margin-top: 20px" align="center">Director - Borrar</h3>
+		<h3 style="margin-top: 20px" align="center">Sucursal - Borrar</h3>
 		
 		<!-- Formulario Spring -->
 		<form:form name="" method="post" modelAttribute="sucursal" class="mx-auto">

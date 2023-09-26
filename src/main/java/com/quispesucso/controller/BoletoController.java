@@ -28,6 +28,8 @@ public class BoletoController
 	@Autowired
 	private SalaService salaService;
 	
+	public BoletoController() {}
+	
 	@GetMapping("/boletos")
 	public String listar_GET(Map map)
 	{

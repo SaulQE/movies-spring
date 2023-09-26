@@ -41,12 +41,6 @@ public class PeliculaController
 	private Collection<Sala> carrito = null;
 	
 	public PeliculaController() {}
-
-	@GetMapping("/home")
-	public String home_GET() 
-	{
-		return "home";
-	}
 	
 	@GetMapping("/peliculas")
 	public String listar_GET(Map map) 
